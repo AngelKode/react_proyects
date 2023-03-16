@@ -1,17 +1,14 @@
-import React, {KeyboardEventHandler, ReactElement, useState} from "react";
+import React, {ReactElement, useState} from "react";
+import {AddCategory} from "./components/AddCategory";
 
 export const GifExpertApp = () : ReactElement => {
 
     const [categories, setCategories] = useState(['One Punch','Saitama']);
-    const [category, setCategory] = useState('');
 
-    const onAddCategory = () => {
-        setCategories((prevState) => [...prevState, category]);
-        setCategory('');
-    }
-    const handleDataEnter = (event: any) => {
-        event.preventDefault();
-        setCategory(`${event.target.value}`);
+    const handleNewCategory = (newCategory : string) => {
+        if(categories.find((category : string) => category === newCategory.toUpperCase())) return;
+
+        setCategories((prevState : string[]) => [newCategory.trim().slice(0,newCategory.length),...prevState])
     }
 
     return (
@@ -20,15 +17,11 @@ export const GifExpertApp = () : ReactElement => {
           <h1>Gif Expert App</h1>
           <h2>Using React JS and PicoCSS</h2>
         </hgroup>
-        <form>
-          <label htmlFor="category">Search category</label>
-          <input type="text" id="category" name="category" placeholder="Category" required onChange={handleDataEnter} value={category}/>
-        </form>
-        <button type={"button"} onClick={onAddCategory}>Add Category</button>
+        <AddCategory onNewCategory={handleNewCategory}/>
         <ol>
            {
-               categories.map((category:string, id:number) => {
-                   return <li key={id}>{ category }</li>;
+               categories.map((category:string) => {
+                   return <li key={category.toUpperCase()}>{ category }</li>;
                })
            }
         </ol>
