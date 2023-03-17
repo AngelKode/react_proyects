@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
 
-export const AddCategory = ({onNewCategory} : any) =>  {
+export const AddCategory = ({onNewCategory} : any) : JSX.Element =>  {
 
     const [category, setCategory] = useState('');
 
