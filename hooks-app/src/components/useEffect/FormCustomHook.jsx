@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from '../../hooks/useForm'
 
-export const FormSCustomHook = () => {
+export const FormCustomHook = () => {
 
     const { formState : {username,email,password}, handleInputChange} = useForm({
         username : '',
