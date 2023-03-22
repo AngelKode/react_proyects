@@ -7,6 +7,7 @@ export const CounterApp = () => {
         counter2 : 20,
         counter3 : 30
     });
+    
 
     return (
         <>
