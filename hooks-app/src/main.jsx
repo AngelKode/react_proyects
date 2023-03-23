@@ -6,9 +6,11 @@ import {CounterApp} from "./components/CounterApp.jsx";
 import { CounterWithCustomHook } from './components/CounterWithCustomHook.jsx';
 import { SimpleForm } from './components/useEffect/SimpleForm.jsx';
 import { FormCustomHook } from './components/useEffect/FormCustomHook.jsx';
+import { MultipleCustomHooks } from './components/examples/MultipleCustomHooks.jsx';
+import '../src/styles.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.Fragment>
-    <FormCustomHook/>
+    <MultipleCustomHooks/>
   </React.Fragment>,
 )

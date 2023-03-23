@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useForm } from '../../hooks/useForm'
 
 export const FormCustomHook = () => {
 
-    const { formState : {username,email,password}, handleInputChange} = useForm({
+    const { formState : {username,email,password}, onInputChange,onResetForm} = useForm({
         username : '',
         email    : '',
         password : ''
@@ -22,7 +22,7 @@ export const FormCustomHook = () => {
                                name='username'
                                placeholder='Username'
                                value={username}
-                               onChange={handleInputChange}
+                               onChange={onInputChange}
                         />
                     </label>
 
@@ -33,7 +33,7 @@ export const FormCustomHook = () => {
                                name='email'
                                placeholder='Email address'
                                value={email}
-                               onChange={handleInputChange}
+                               onChange={onInputChange}
                         />
                     </label>
 
@@ -44,11 +44,15 @@ export const FormCustomHook = () => {
                                name='password'
                                placeholder='Password'
                                value={password}
-                               onChange={handleInputChange}
+                               onChange={onInputChange}
                         />
                     </label>
                 </div>
             </form>
+            <button className='contrast'
+                    onClick={onResetForm}>
+                Reset
+            </button>
         </>
     )
 }
