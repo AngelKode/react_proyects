@@ -1,19 +1,11 @@
 .parent {
-    display: grid;
-    overflow: auto;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    grid-auto-flow: row;
-  
-    & > div,article{
-      flex-direction: column;
-      flex-wrap: wrap;
-      text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-      & > p{
-        margin: 0;
-      }
-
+    & > *{
+      width: 70%;
     }
   }
   

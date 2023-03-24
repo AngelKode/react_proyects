@@ -53,6 +53,7 @@ export const useFetch = (apiUrl) => {
     return {
         data,
         isLoading,
-        hasError
+        hasError,
+        getFetch
     };
 }
