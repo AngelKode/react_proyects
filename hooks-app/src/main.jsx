@@ -8,9 +8,10 @@ import { SimpleForm } from './components/useEffect/SimpleForm.jsx';
 import { FormCustomHook } from './components/useEffect/FormCustomHook.jsx';
 import { MultipleCustomHooks } from './components/examples/MultipleCustomHooks.jsx';
 import '../src/styles.scss';
+import { FocusScreen } from './components/useRef/FocusScreen.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.Fragment>
-    <MultipleCustomHooks/>
+    <FocusScreen/>
   </React.Fragment>,
 )
