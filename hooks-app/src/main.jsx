@@ -12,9 +12,10 @@ import { FocusScreen } from './components/useRef/FocusScreen.jsx'; */
 /* import { Layout } from './components/useLayoutEffect/Layout.jsx';
 import { Memorize } from './components/memo/Memorize'; */
 import {MemoHook} from './components/memo/MemoHook';
+import { Callback } from './components/useCallback/Callback';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.Fragment>
-    <MemoHook/>
+    <Callback/>
   </React.Fragment>,
 )
