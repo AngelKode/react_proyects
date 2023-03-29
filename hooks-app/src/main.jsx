@@ -11,11 +11,12 @@ import { MultipleCustomHooks } from './components/examples/MultipleCustomHooks.j
 import { FocusScreen } from './components/useRef/FocusScreen.jsx'; */
 /* import { Layout } from './components/useLayoutEffect/Layout.jsx';
 import { Memorize } from './components/memo/Memorize'; */
-import {MemoHook} from './components/memo/MemoHook';
-import { Callback } from './components/useCallback/Callback';
+/* import {MemoHook} from './components/memo/MemoHook';
+import { Callback } from './components/useCallback/Callback'; */
+import { Padre } from './components/memo-hw/Padre';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.Fragment>
-    <Callback/>
+    <Padre/>
   </React.Fragment>,
 )
