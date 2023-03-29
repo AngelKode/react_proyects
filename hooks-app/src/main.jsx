@@ -10,9 +10,10 @@ import { FormCustomHook } from './components/useEffect/FormCustomHook.jsx';
 import { MultipleCustomHooks } from './components/examples/MultipleCustomHooks.jsx';
 import { FocusScreen } from './components/useRef/FocusScreen.jsx'; */
 import { Layout } from './components/useLayoutEffect/Layout.jsx';
+import { Memorize } from './components/memo/Memorize';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.Fragment>
-    <Layout/>
+    <Memorize/>
   </React.Fragment>,
 )
