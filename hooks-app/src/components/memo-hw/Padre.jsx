@@ -7,7 +7,7 @@ export const Padre = () => {
     const [valor, setValor] = useState(0);
 
     const incrementar = useCallback(( num ) => {
-        setValor( (prev) => prev + num );
+        setValor( (prev) => prev + num ); 
     },[])
 
 
