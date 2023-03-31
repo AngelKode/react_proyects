@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import '@picocss/pico'
 import '../src/styles.scss';
+import { TodoApp } from './components/useReducer/TodoApp';
 /* import {HooksApp} from "./components/HooksApp.jsx";
 import {CounterApp} from "./components/CounterApp.jsx";
 import { CounterWithCustomHook } from './components/CounterWithCustomHook.jsx';
@@ -13,10 +14,11 @@ import { FocusScreen } from './components/useRef/FocusScreen.jsx'; */
 import { Memorize } from './components/memo/Memorize'; */
 /* import {MemoHook} from './components/memo/MemoHook';
 import { Callback } from './components/useCallback/Callback'; */
-import { Padre } from './components/memo-hw/Padre';
+//import { Padre } from './components/memo-hw/Padre';
+//import './components/useReducer/reducer';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.Fragment>
-    <Padre/>
+    <TodoApp/>
   </React.Fragment>,
 )
