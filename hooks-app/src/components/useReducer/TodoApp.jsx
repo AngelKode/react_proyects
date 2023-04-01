@@ -1,11 +1,12 @@
 import { useReducer } from "react"
 import { todoReducer } from "./todoReducer";
+import { AddTodo,TodoList } from "./components";
 
 const initialState = [
     {
         id          : new Date().getTime(),
         description : 'Comprar leche',
-        done        : false
+        done        : true
     },
     {
         id          : new Date().getTime() + 1,
@@ -23,6 +24,10 @@ export const TodoApp = () => {
 
     const [todos, dispatchTodos] = useReducer(todoReducer, initialState);      
     
+    const handleNewTodo = (todo) => {
+        console.log(todo);
+    }
+
     return (
         <main>
             <div role="document">
@@ -33,57 +38,10 @@ export const TodoApp = () => {
                     </hgroup>
                     <div className="grid">
                         <section>
-                            <ul style={{'paddingLeft':'0'}}>
-                                {
-                                    initialState.map((todo) => (
-                                        <li key={todo.id} style={{'listStyle':'none'}}>
-                                            <nav>
-                                                <ul>
-                                                    <li><strong>{todo.description}</strong></li>
-                                                </ul>
-                                                <ul>
-                                                    {
-                                                        !todo.done && 
-                                                        <li>
-                                                            <a href="#" 
-                                                            className="contrast"
-                                                            role="button">Delete
-                                                            </a>
-                                                        </li>
-                                                    }
-                                                    {
-                                                        todo.done && 
-                                                        <li>
-                                                            <a>Done</a>
-                                                        </li>
-                                                    }
-                                                </ul>
-                                            </nav>
-                                            <hr />
-                                        </li>
-                                    ))
-                                }
-                            </ul>
+                            <TodoList todos={todos}/>
                         </section>
                         <section>
-                            <hgroup>
-                                <h3>Add Todo</h3>
-                                <h4>So you dont forget it</h4>
-                            </hgroup>
-                            <form>
-                                <div className="grid">
-                                    <label htmlFor="newTodo">
-                                        <input type="text"
-                                            id="newTodo"
-                                            name="newTodo"
-                                            placeholder="What's next?"
-                                        />
-                                    </label>
-                                </div>
-                                <button type="submit">
-                                    Remember me
-                                </button>
-                            </form>
+                            <AddTodo onHandleNewTodo={handleNewTodo}/>
                         </section>
                     </div>
                 </section>
