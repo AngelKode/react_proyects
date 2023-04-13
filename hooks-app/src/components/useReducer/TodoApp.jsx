@@ -25,7 +25,19 @@ export const TodoApp = () => {
     const [todos, dispatchTodos] = useReducer(todoReducer, initialState);      
     
     const handleNewTodo = (todo) => {
-        console.log(todo);
+        const action = {
+            type : '[TODO] addTodo',
+            payload : todo
+        }
+        dispatchTodos(action);
+    }
+
+    const handleDeleteTodo = (todo) => {
+        const action = {
+            type : '[TODO] deleteTodo',
+            payload : todo
+        }
+        dispatchTodos(action);
     }
 
     return (
@@ -38,7 +50,7 @@ export const TodoApp = () => {
                     </hgroup>
                     <div className="grid">
                         <section>
-                            <TodoList todos={todos}/>
+                            <TodoList todos={todos} onHandleDeleteTodo={handleDeleteTodo}/>
                         </section>
                         <section>
                             <AddTodo onHandleNewTodo={handleNewTodo}/>

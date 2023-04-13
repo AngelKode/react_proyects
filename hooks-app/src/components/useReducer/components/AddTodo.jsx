@@ -8,8 +8,9 @@ export const AddTodo = ({onHandleNewTodo}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if(!(description.length  > 0)) return;
+        onHandleNewTodo({id : new Date().getTime(), description : description, done : false})
         onResetForm();
-        onHandleNewTodo({id : 12381092, description : todo, done : false})
     }
     
     return (
