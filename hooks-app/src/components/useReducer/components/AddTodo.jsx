@@ -2,7 +2,7 @@ import { useForm } from "../../../hooks/useForm"
 
 export const AddTodo = ({onHandleNewTodo}) => {
     
-    const {description,onInputChange,onResetForm} = useForm({
+    const {description,onInputChange,onResetForm,valid} = useForm({
         description : ''
     });
 
@@ -31,7 +31,8 @@ export const AddTodo = ({onHandleNewTodo}) => {
                     />
                 </label>
             </div>
-            <button type="submit">
+            <button type="submit"
+                    disabled={!valid}>
                 Remember me
             </button>
         </form>
