@@ -52,6 +52,15 @@ export const TodoApp = () => {
         dispatchTodos(action);
     }
 
+    const handleToggleTodo = (todoId) => {
+        const action = {
+            type : '[TODO] toggleTodo',
+            payload : todoId
+        }
+        dispatchTodos(action);
+    }
+    
+
     return (
         <main>
             <div role="document">
@@ -62,7 +71,10 @@ export const TodoApp = () => {
                     </hgroup>
                     <div className="grid">
                         <section>
-                            <TodoList todos={todos} onHandleDeleteTodo={handleDeleteTodo}/>
+                            <TodoList todos={todos} 
+                                      onHandleDeleteTodo={handleDeleteTodo}
+                                      onHandleToggleTodo={handleToggleTodo}
+                            />
                         </section>
                         <section>
                             <AddTodo onHandleNewTodo={handleNewTodo}/>
