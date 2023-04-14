@@ -1,65 +1,10 @@
-import { useReducer , useEffect} from "react"
-import { todoReducer } from "./todoReducer";
 import { AddTodo,TodoList } from "./components";
-
-const initialState = [
-    {
-        id          : new Date().getTime(),
-        description : 'Comprar leche',
-        done        : true
-    },
-    {
-        id          : new Date().getTime() + 1,
-        description : 'Comprar café',
-        done        : false
-    },
-    {
-        id          : new Date().getTime() + 2,
-        description : 'Comprar pan',
-        done        : false
-    }
-]
-
-const initTodos = () => {
-    return JSON.parse(localStorage.getItem('todos')) ?? [];
-}
+import { useTodos } from "./hooks/useTodos";
 
 export const TodoApp = () => {
-
-    const [todos, dispatchTodos] = useReducer(todoReducer, initialState,initTodos);      
-    
-    //Handle todos changes
-    useEffect(() => {
-        
-        localStorage.setItem('todos',JSON.stringify([...todos]) ?? [])
-            
-        return () => {}
-    }, [todos])
-    
-    const handleNewTodo = (todo) => {
-        const action = {
-            type : '[TODO] addTodo',
-            payload : todo
-        }
-        dispatchTodos(action);
-    }
-
-    const handleDeleteTodo = (todo) => {
-        const action = {
-            type : '[TODO] deleteTodo',
-            payload : todo
-        }
-        dispatchTodos(action);
-    }
-
-    const handleToggleTodo = (todoId) => {
-        const action = {
-            type : '[TODO] toggleTodo',
-            payload : todoId
-        }
-        dispatchTodos(action);
-    }
-    
+ 
+    const {todos, handleNewTodo, handleDeleteTodo, handleToggleTodo, todosInformation} = useTodos([]);
+    const {todosCount,doneTodosCount,pendingTodosCount} = todosInformation;
 
     return (
         <main>
@@ -69,6 +14,9 @@ export const TodoApp = () => {
                         <h1>Todo App</h1>
                         <h2>Using reducers</h2>
                     </hgroup>
+                    <kbd style={{'marginRight':'10px'}}>All todos: <i>{todosCount()}</i></kbd>
+                    <kbd style={{'marginRight':'10px'}}>Done: <i>{doneTodosCount()}</i></kbd>
+                    <kbd>Pending: <i>{pendingTodosCount()}</i></kbd>
                     <div className="grid">
                         <section>
                             <TodoList todos={todos} 
